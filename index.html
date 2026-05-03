@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo" onclick="switchView('home')">Shop.</h1>
+            <div class="nav-links">
+                <a href="#" onclick="switchView('home')">Home</a>
+                <a href="#" onclick="switchView('collection')">Collection</a>
+                <a href="#" onclick="switchView('admin')">Admin</a>
+            </div>
+            <div class="nav-search">
+                <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+        
+        <!-- Home / Collection View -->
+        <div id="store-view">
+            <!-- Hero Section -->
+            <section class="hero" id="hero-section">
+                <div class="hero-content">
+                    <h2>Elegance Defined</h2>
+                    <p>Discover our exclusive collection of premium female suits and handpicked accessories.</p>
+                    <button class="cta-btn" onclick="switchView('collection')">Shop the Collection</button>
+                </div>
+            </section>
+
+            <!-- Featured/Collection Section -->
+            <section class="collection-section">
+                <h3 class="section-title" id="collection-title">Featured Products</h3>
+                <div class="product-grid" id="product-grid">
+                    <!-- Products injected via JS -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Admin View (Hidden by default) -->
+        <div id="admin-view" class="hidden">
+            <div class="admin-container">
+                <h2>Admin Control Panel</h2>
+                
+                <!-- Add Product Form -->
+                <div class="admin-card">
+                    <h3>Add New Product</h3>
+                    <form id="add-product-form">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" id="p-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price (₹)</label>
+                            <input type="number" id="p-price" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="p-desc" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Main Image URL</label>
+                            <input type="url" id="p-main-img" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sub Image 1 URL (Optional)</label>
+                            <input type="url" id="p-sub-1">
+                        </div>
+                        <div class="form-group">
+                            <label>Sub Image 2 URL (Optional)</label>
+                            <input type="url" id="p-sub-2">
+                        </div>
+                        <div class="form-group">
+                            <label>Sub Image 3 URL (Optional)</label>
+                            <input type="url" id="p-sub-3">
+                        </div>
+                        <div class="form-group">
+                            <label>Sub Image 4 URL (Optional)</label>
+                            <input type="url" id="p-sub-4">
+                        </div>
+                        <button type="submit" class="cta-btn">Add Product</button>
+                    </form>
+                </div>
+
+                <!-- Delete Product Section -->
+                <div class="admin-card" style="margin-top: 2rem;">
+                    <h3>Manage Existing Products</h3>
+                    <div id="admin-product-list" class="admin-item-list">
+                        <!-- Admin products injected here -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <img id="modal-main-img" src="" alt="Main Product">
+                    <div class="thumbnail-container" id="modal-thumbnails">
+                        <!-- Thumbnails injected via JS -->
+                    </div>
+                </div>
+                
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p class="modal-price" id="modal-price"></p>
+                    <div class="modal-desc" id="modal-desc"></div>
+                    
+                    <button class="whatsapp-btn" id="whatsapp-btn">
+                        Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
